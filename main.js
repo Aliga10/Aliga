@@ -177,3 +177,169 @@ function halo (pesan){
 }
 console.log(halo(10));
 console.log(halo(20))
+
+// excercise
+// speedlimit max = 70
+// every 5 above speedlimit get 1 points
+// use Math.floor()
+// more than 12 ponts you get suspended
+
+
+
+const speedLimit = 70 ;
+const kmPerPoin = 5;
+
+function checkSpeed(speed) {
+    if (speed < speedLimit + kmPerPoin ){
+        return 'OK';
+    }
+    const points = Math.floor((speed - speedLimit) / kmPerPoin )
+    if (points > 12)
+        return 'suspended'
+    else 
+        return 'point ' + points;
+}
+console.log(checkSpeed(74))
+console.log(checkSpeed(79))
+console.log(checkSpeed(120))
+console.log(checkSpeed(180))
+
+// exercise
+// show even and odd 
+
+function showNumber(limit){
+    for (let i = 0 ; i <= limit ; i++){
+        const message = (i % 2 == 0) ? 'EVEN' : 'ODD'
+        console.log(i , message)
+    }
+        
+}
+console.log(showNumber(10))
+
+const array =[0,1,2,3,4, 'aliga','',0,undefined,'jhbscbh',null,'kwaii'] //truthy
+
+function countTurthy(array){
+    let counter = 0;
+    array.forEach(function(nilai){
+        if(!!nilai) counter++
+    });
+   return counter;
+}
+function counterTurthy2(array){
+    let counter = 0;
+    for(let value of array)
+        if(value)
+            counter++;
+        return counter;
+}
+    
+console.log(countTurthy(array))
+console.log(counterTurthy2(array))
+
+// print the value properties 
+
+const movie = {
+    tittle : 'naruto',
+    releaseYear : 2010,
+    rating : 8.1 ,
+    studio : 'Toei'
+};
+function showProperties(obj){
+    for (let key in obj)
+        if (typeof obj[key] === 'string')
+            console.log (key , obj[key]);
+}
+showProperties(movie);
+console.log(movie)
+
+//sum function
+//add all number multyple by 3 and 5 between the limit
+
+function sum(limit){
+    let multipleOf3 = 0;
+    let multipleOf5 = 0;
+
+    for (let i = 0;i <= limit; i++){
+        if (i % 3 === 0){
+           multipleOf3 += i ;
+        }
+        else if (i % 5 === 0){
+            multipleOf5 += i;
+        }
+    }
+    
+    return multipleOf3 + multipleOf5;
+
+}
+console.log(sum(10));
+
+// counting average of total array 
+// 1-59 = F
+// 60-69 = D
+// 70-79 = C
+// 80-89 = B
+// 90-100 = A
+
+let marks = [80,80,50];
+
+function calculateGrade(marks){
+    let total = 0;
+    marks.forEach(function(item){
+        total += item;
+    })
+
+    let jumlah = marks.length;
+    let average = (total / jumlah);
+   
+    function grade(nilai) {
+    if (nilai >= 90) {
+        return 'A';
+    } else if (nilai >= 80) {
+        return 'B';
+    } else if (nilai >= 70) {
+        return 'C';
+    } else if (nilai >= 60) {
+        return 'D';
+    } else {
+        return 'E';
+    }
+    }
+    return grade(average)
+
+};
+
+
+// console.log(calculateGrade(marks))
+
+// let marks = [80, 80, 50];
+
+// function calculateGrade(marks) {
+//     // hitung rata-rata dengan reduce versi function biasa
+//     let total = marks.reduce(function(acc, val) {
+//         return acc + val;
+//     }, 0);
+
+//     let average = total / marks.length;
+
+//     if (average >= 90) return 'A';
+//     if (average >= 80) return 'B';
+//     if (average >= 70) return 'C';
+//     if (average >= 60) return 'D';
+//     return 'F';
+// }
+
+// console.log(calculateGrade(marks)); // Output: C
+
+// exercise
+
+showStar(5);
+
+function showStar(rows){
+    for (let row = 0;row <= rows ; row++){
+    let patern = '';
+    for (let i = 0; i < row ; i++)
+        patern += '*';
+    
+    console.log(patern)
+}
+}
