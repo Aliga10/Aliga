@@ -343,3 +343,25 @@ function showStar(rows){
     console.log(patern)
 }
 }
+
+//factory function
+function createCircle(radius){
+    return{
+        radius,
+        draw(){ //method = function inside object
+        console.log('draw circle');
+        }
+    }
+};
+
+const mycircle = createCircle(2); 
+
+//constuctor function ; use Pascal case 
+
+function Circle(radius){
+    this.radius = radius;
+    this.draw = function(){
+        console.log('draw circle');
+    }
+}
+ const circle2 = new Circle;
