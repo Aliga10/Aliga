@@ -364,4 +364,46 @@ function Circle(radius){
         console.log('draw circle');
     }
 }
- const circle2 = new Circle;
+ const circle2 = new Circle(3);
+ 
+ // exercise reading object
+
+ const address = {
+    street : 'dampit street',
+    city : 'malang',
+    zipCode : 65181 
+ };
+  function showAddress(address){
+    for (let key in address )
+        console.log(key, address[key]);
+  };
+  showAddress(address);
+
+  //factory function 
+  function createAddress(street,city,zipCode){
+    return {
+        street,
+        city,
+        zipCode
+    }
+  };
+
+  console.log(createAddress('mojosari','mojokerto',65189));
+
+  //constructor function
+  function Address(street,city,zipCode){
+    this.street = street ;
+    this.city = city;
+    this.zipCode = zipCode;
+  };
+
+  const newAddress = new Address('dampit','malang',65181);
+  console.log(newAddress);
+
+  const address1 = new Address('a','b','c');
+  const address2 = new Address('a','b','c');
+
+  function areEqual(address1, address2){
+    (address1 === address2) 
+  };
+  console.log(areEqual(address1,address2));
